@@ -1,8 +1,8 @@
-<p align="center"><img src="assets/banner.svg" alt="Ameen — A finance desk you talk to — and that won&#x27;t let donation money go astray" width="100%"></p>
+<p align="center"><img src="assets/banner.svg" alt="Ameen — A finance desk you talk to, built to stop donation money being misfiled" width="100%"></p>
 
 <p align="center"><b>Status:</b> Internal pilot &nbsp;·&nbsp; <b>Built by</b> <a href="https://github.com/Mohanad1st">Mohannad Hesham</a> &nbsp;·&nbsp; <b>Source:</b> private</p>
 
-> **This is a showcase, not the code.** The source is private because the system handles real operations for real people. Nothing here is needed to run it, and nothing here reveals how it is secured. A live walkthrough is available on request.
+> **This is a showcase, not the code.** The source is private because it holds real financial records. This page shows what it does and how it was built, not the code itself. A live walkthrough is available on request.
 
 ## The problem
 
