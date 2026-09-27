@@ -1,12 +1,16 @@
-<p align="center"><img src="assets/banner.svg" alt="Ameen — A finance desk you talk to, built to stop donation money being misfiled" width="100%"></p>
+<p align="center"><img src="assets/banner.svg" alt="Ameen" width="100%"></p>
 
-<p align="center"><b>Status:</b> Internal pilot &nbsp;·&nbsp; <b>Built by</b> <a href="https://github.com/Mohanad1st">Mohannad Hesham</a> &nbsp;·&nbsp; <b>Source:</b> private</p>
+<p align="center"><b>A finance desk you talk to, built to stop donation money being misfiled</b></p>
 
-> **This is a showcase, not the code.** The source is private because it holds real financial records. This page shows what it does and how it was built, not the code itself. A live walkthrough is available on request.
+<p align="center" dir="rtl" lang="ar">أمين — سجلّ مالي بالمحادثة، يمنع قيد أموال التبرعات في غير بندها</p>
+
+<p align="center"><b>Status:</b> Internal pilot &nbsp;·&nbsp; <b>Built by</b> <a href="https://github.com/Mohanad1st">Mohannad Hesham</a></p>
+
+> Case study only: the source is private because it holds real financial records. Walkthrough on request.
 
 ## The problem
 
-In a small NGO, the founder often keeps the books by hand. Donation money, personal money, what others owe and what the organisation owes all end up in one spreadsheet, and one miscategorised line is the kind of mistake that erodes trust. Ameen puts a conversational front end on that ledger, with hard rules that block the costliest mistakes instead of just warning about them.
+Small organisations often track day-to-day money by hand, and when donations, operating costs and staff reimbursements pass through the same few people, one miscategorised line is the kind of mistake that erodes trust. Ameen is a single-user internal pilot that puts a conversational front end on a working ledger, with rules that block the costliest miscategorisation instead of just warning about it. It supports bookkeeping; it does not replace the accountant or the audit.
 
 ## What it does
 
@@ -20,30 +24,32 @@ In a small NGO, the founder often keeps the books by hand. Donation money, perso
 How the work flows:
 
 ```mermaid
-flowchart LR
-  A[You describe a transaction in plain words] --> B[Ameen drafts a structured entry]
+flowchart TD
+  accTitle: How an entry is recorded in Ameen
+  accDescr: You describe a transaction, Ameen drafts an entry, rules block donation money going to a personal account and warn on unusual amounts, you see a preview, and only your confirmation writes it.
+  A[Describe it] --> B[Draft entry]
   B --> C{Rules check}
-  C -- donation money into a personal account --> X[Blocked]
-  C -- unusual amount or currency --> W[Warning shown]
+  C -- donation to personal --> X[Blocked]
+  C -- unusual amount --> W[Warning]
   C -- ok --> D[Preview]
   W --> D
-  D -- you confirm --> E[(Append-only ledger)]
-  D -- you cancel --> F[Nothing is written]
+  D -- confirm --> E[(Ledger)]
+  D -- cancel --> F[Nothing written]
 ```
 
 <sub>Screens are not shown because every screen in this app displays real financial records.</sub>
 
 ## Built with
 
-Next.js · TypeScript · Tailwind CSS · Google Sheets as the ledger · an LLM for understanding plain-language entries
+Next.js · TypeScript · Tailwind CSS · a spreadsheet-backed ledger · an LLM for understanding plain-language entries
 
 ## Built responsibly
 
 - Nothing is written without an explicit confirm; the assistant can only prepare a preview
-- The ledger is append-only, enforced on the server: entries are added, never overwritten
+- Append-only through the app: it can add entries but has no edit or delete path
 - Rule-based guardrails block donation or grant money from being recorded as personal funds
 - Every entry is timestamped
-- The whole app sits behind a login
+- The app sits behind an access code; it is a single-user pilot, not yet a multi-user system
 
 ## What it deliberately doesn't do
 
@@ -52,6 +58,7 @@ Next.js · TypeScript · Tailwind CSS · Google Sheets as the ledger · an LLM f
 ## More from Life From Water
 
 - [LFW HR System](https://github.com/Mohanad1st/lfw-hr-system-showcase) — Attendance, leave, overtime and approvals for a field NGO, in Arabic and English
+- [WaterEye](https://github.com/Mohanad1st/watereye-showcase) — Read an analogue water gauge from a phone photo, no smart meter needed
 - [Life From Water — donation platform](https://github.com/Mohanad1st/lifefromwater-website-showcase) — Donations and impact you can check, for a water-access NGO in rural Egypt
 - [Opportunity Studio](https://github.com/Mohanad1st/opportunity-studio-showcase) — An evidence-first pipeline for grants, fellowships and tenders
 
